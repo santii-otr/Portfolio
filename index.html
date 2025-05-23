@@ -20,19 +20,16 @@
             position: relative;
             overflow-x: hidden;
             
-            /* Fondo base con textura tipo mármol */
             background: 
                 radial-gradient(circle at 10% 20%, rgba(46, 125, 50, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
                 linear-gradient(135deg, #fefefe 0%, #ffffff 30%, #f8f9fa 100%);
             
-            /* Textura sutil tipo granito */
             background-image: 
                 radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.02) 0%, transparent 30%),
                 radial-gradient(circle at 75% 75%, rgba(46, 125, 50, 0.02) 0%, transparent 30%);
         }
 
-        /* Elementos decorativos tipo hojas */
         .leaf-decoration {
             position: fixed;
             width: 12px;
@@ -58,7 +55,6 @@
             }
         }
 
-        /* Navegación elegante */
         nav {
             position: fixed;
             top: 25px;
@@ -119,7 +115,6 @@
             width: 100%;
         }
 
-        /* Sección principal */
         .hero {
             height: 100vh;
             display: flex;
@@ -190,7 +185,6 @@
             animation: slideIn 0.8s ease 0.8s forwards;
         }
 
-        /* Botones premium */
         .btn {
             padding: 16px 40px;
             border: none;
@@ -230,7 +224,6 @@
             color: #d4af37;
         }
 
-        /* Elementos flotantes decorativos */
         .floating-plants {
             position: absolute;
             width: 100%;
@@ -291,7 +284,6 @@
             50% { transform: translateY(-15px) rotate(5deg); }
         }
 
-        /* Showcase de proyectos */
         .projects-grid {
             position: absolute;
             bottom: 60px;
@@ -351,7 +343,6 @@
             font-weight: 600;
         }
 
-        /* Enlaces sociales */
         .social-sidebar {
             position: fixed;
             right: 30px;
@@ -389,7 +380,6 @@
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
 
-        /* Indicador de scroll */
         .scroll-hint {
             position: absolute;
             bottom: 30px;
@@ -409,7 +399,6 @@
             margin-top: 8px;
         }
 
-        /* Animaciones */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -455,7 +444,6 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav {
                 padding: 10px 20px;
@@ -502,7 +490,6 @@
     </style>
 </head>
 <body>
-    <!-- Navegación -->
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -512,7 +499,6 @@
         </ul>
     </nav>
 
-    <!-- Enlaces sociales -->
     <div class="social-sidebar">
         <a href="mailto:contact@example.com" class="social-link">✉</a>
         <a href="#" class="social-link">💼</a>
@@ -520,9 +506,7 @@
         <a href="#" class="social-link">🎯</a>
     </div>
 
-    <!-- Sección principal -->
     <section class="hero" id="inicio">
-        <!-- Elementos decorativos tipo plantas -->
         <div class="floating-plants">
             <div class="plant-element"></div>
             <div class="plant-element"></div>
@@ -540,7 +524,6 @@
             </div>
         </div>
 
-        <!-- Showcase de proyectos -->
         <div class="projects-grid">
             <div class="project-card">
                 <div class="tech-tag">React</div>
@@ -559,14 +542,12 @@
             </div>
         </div>
 
-        <!-- Indicador de scroll -->
         <div class="scroll-hint">
             Explora más abajo
         </div>
     </section>
 
     <script>
-        // Crear elementos flotantes tipo hojas
         function createLeafElements() {
             const leafCount = 15;
             
@@ -577,7 +558,6 @@
                 leaf.style.animationDelay = Math.random() * 25 + 's';
                 leaf.style.animationDuration = (Math.random() * 10 + 20) + 's';
                 
-                // Diferentes tonos de verde
                 const greenShades = ['#2e7d32', '#388e3c', '#4caf50', '#66bb6a'];
                 leaf.style.background = greenShades[Math.floor(Math.random() * greenShades.length)];
                 
@@ -585,7 +565,6 @@
             }
         }
 
-        // Scroll suave para navegación
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -600,7 +579,6 @@
             });
         });
 
-        // Efectos hover para tarjetas de proyecto
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-8px) rotateY(5deg) scale(1.02)';
@@ -611,7 +589,6 @@
             });
         });
 
-        // Efecto ripple para botones
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 const ripple = document.createElement('span');
@@ -641,7 +618,6 @@
             });
         });
 
-        // Agregar animación ripple
         const rippleStyle = document.createElement('style');
         rippleStyle.textContent = `
             @keyframes rippleEffect {
@@ -653,12 +629,10 @@
         `;
         document.head.appendChild(rippleStyle);
 
-        // Efecto parallax sutil con el mouse
         document.addEventListener('mousemove', function(e) {
             const mouseX = (e.clientX / window.innerWidth) - 0.5;
             const mouseY = (e.clientY / window.innerHeight) - 0.5;
-            
-            // Efecto en elementos flotantes
+        
             document.querySelectorAll('.plant-element').forEach((element, index) => {
                 const speed = (index + 1) * 0.2;
                 const x = mouseX * speed * 20;
@@ -666,8 +640,7 @@
                 
                 element.style.transform = `translate(${x}px, ${y}px) rotate(${mouseX * speed * 5}deg)`;
             });
-            
-            // Parallax sutil en el contenido principal
+
             const heroContent = document.querySelector('.hero-content');
             if (heroContent) {
                 const parallaxX = mouseX * 8;
@@ -676,10 +649,8 @@
             }
         });
 
-        // Inicializar
         createLeafElements();
-        
-        // Efecto de carga suave
+
         window.addEventListener('load', function() {
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.5s ease';
